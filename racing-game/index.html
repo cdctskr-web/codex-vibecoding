@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#07101e" />
+  <title>NEON RUSH | 3D Racing</title>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script defer src="game.js"></script>
+</head>
+<body>
+  <main id="game-shell">
+    <div id="game-canvas" aria-label="3D 레이싱 게임"></div>
+    <header class="top-bar">
+      <div class="brand"><i>N</i> NEON <b>RUSH</b></div>
+      <div class="race-title">MIDNIGHT CIRCUIT <span>•</span> FINAL RACE</div>
+      <button id="sound-button" class="icon-button" type="button" aria-label="사운드">♪</button>
+    </header>
+
+    <section class="hud" aria-label="레이스 상태">
+      <div class="speed-panel panel"><span class="eyebrow">SPEED</span><div><strong id="speed">000</strong><small>KM/H</small></div><div class="speed-lines"><i></i><i></i><i></i><i></i><i></i></div></div>
+      <div class="position-panel panel"><span class="eyebrow">POSITION</span><strong id="position">1<span>ST</span></strong><p><b id="lap">1</b> / 3 LAPS</p></div>
+    </section>
+
+    <section class="right-hud" aria-label="레이스 정보">
+      <div class="race-time panel"><span class="eyebrow">RACE TIME</span><strong id="time">00:00.000</strong></div>
+      <div class="mini-map panel"><div class="map-title"><span>LIVE RANK</span><b id="rank-summary">1 / 4</b></div><ol id="leaderboard"></ol></div>
+    </section>
+
+    <div id="countdown" aria-live="assertive"></div>
+    <div id="event-toast" aria-live="polite"></div>
+    <section class="boost-meter" aria-label="터보 상태"><div class="boost-label"><span>BOOST</span><b id="boost-value">100%</b></div><div class="boost-track"><div id="boost-fill"></div></div><span class="key-hint">SPACE</span></section>
+    <section class="controls" aria-label="조작법"><div><kbd>W</kbd><kbd>S</kbd><span>ACCEL / BRAKE</span></div><div><kbd>A</kbd><kbd>D</kbd><span>STEER</span></div><div><kbd>SPACE</kbd><span>BOOST</span></div></section>
+
+    <section id="start-screen" class="overlay">
+      <div class="start-card"><p class="overline">CHAMPIONSHIP • NIGHT 01</p><h1>OWN<br /><em>THE NIGHT.</em></h1><p class="intro">도시의 불빛 아래, 세 명의 라이벌을 추월하세요.<br />3랩을 가장 먼저 완주하면 우승입니다.</p><button id="start-button" type="button">ENGINE START <span>→</span></button><p class="start-note">방향키 또는 W A S D로 조작</p></div>
+    </section>
+    <section id="finish-screen" class="overlay hidden" aria-live="assertive">
+      <div class="finish-card"><p class="overline">RACE COMPLETE</p><h1 id="finish-title">1<sup>ST</sup></h1><p id="finish-message"></p><div class="finish-time"><span>FINAL TIME</span><b id="finish-time">00:00.000</b></div><button id="restart-button" type="button">RACE AGAIN <span>↻</span></button></div>
+    </section>
+  </main>
+</body>
+</html>
