@@ -1,0 +1,14 @@
+Generation mode: Built-in image_gen tool
+Asset: ai-conference-cyberpunk.png
+
+Final prompt:
+Use case: stylized-concept
+Asset type: wide hero banner for an AI conference landing page.
+Primary request: 다크 테마의 사이버펑크 스타일 AI 컨퍼런스 이미지.
+Scene/backdrop: a futuristic indoor conference auditorium with architectural LED light strips, a wide presentation stage, and subtle audience silhouettes.
+Subject: a luminous abstract AI neural-network hologram suspended above the stage, made of fine interconnected light nodes and flowing data strands.
+Style/medium: polished cinematic 3D concept art with realistic architectural materials, sophisticated and immersive.
+Composition/framing: panoramic 16:9 landscape, wide-angle view across the auditorium toward the stage; strong depth and a clear visual focal point; generous dark breathing room.
+Lighting/mood: deep shadows, restrained volumetric light and atmospheric haze, vibrant cyan and violet rim lighting.
+Color palette: near-black and dark navy (#0D1117), neon cyan (#00D4FF), violet accents matching #A78BFA.
+Constraints: image only, no typography, no letters, no numbers, no logos, no watermark, no webpage UI. Opaque background.
