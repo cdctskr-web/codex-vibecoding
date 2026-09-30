@@ -16,50 +16,52 @@
     <header class="site-header">
       <div class="container site-header__inner">
         <a class="site-header__brand" href="#hero" aria-label="AIIC 2026 행사 소개">AIIC 2026</a>
-        <nav aria-label="주요 메뉴">
-          <ul class="link-list">
-            <li><a href="#hero">행사 소개</a></li>
-            <li><a href="#speakers">연사 소개</a></li>
-            <li><a href="#registration">사전 등록</a></li>
+        <nav class="site-header__nav" aria-label="주요 메뉴">
+          <ul class="link-list site-header__links">
+            <li><a class="site-header__link" href="#hero">행사 소개</a></li>
+            <li><a class="site-header__link" href="#speakers">연사 소개</a></li>
+            <li><a class="site-header__link" href="#registration">사전 등록</a></li>
           </ul>
         </nav>
       </div>
     </header>
 
-    <main id="main-content" class="container">
-      <!-- 1. Hero: 행사명, 주제, 일정, 장소, 등록 CTA 및 배너 이미지 영역 -->
-      <section id="hero" class="page-section hero" aria-labelledby="hero-title">
-        <h1 id="hero-title" class="hero__title" lang="en">2026 AI Innovators Conference</h1>
-        <p class="hero__subtitle" lang="en">Beyond Human: The Next Era of Autonomous Agents</p>
-        <p class="hero__description">
-          전 세계의 AI 연구자, 개발자, 기업가들이 모여 최신 인공지능 기술 동향과
-          미래의 비전을 공유하는 글로벌 컨퍼런스입니다.
-        </p>
-        <dl class="detail-list">
-          <dt class="detail-list__term">일시</dt>
-          <dd class="detail-list__description">
-            <time datetime="2026-11-12">2026년 11월 12일(목)</time> ~
-            <time datetime="2026-11-14">11월 14일(토)</time>
-          </dd>
-          <dt class="detail-list__term">장소</dt>
-          <dd class="detail-list__description">서울 코엑스 (Seoul COEX) 그랜드 볼룸 및 온라인 동시 생중계</dd>
-        </dl>
-        <p>얼리버드 티켓 사전 등록</p>
-        <a class="button button--cta" href="#registration">사전 등록하기 <span lang="en">(Register Now)</span></a>
-
-        <figure class="hero__banner">
-          <img
-            class="hero__image"
-            src="assets/ai-conference-cyberpunk.png"
-            alt="푸른색과 보라색 네온 조명 아래 AI 신경망 홀로그램이 떠 있는 미래형 컨퍼런스장 콘셉트 이미지"
-            width="1672"
-            height="941"
-          />
-        </figure>
+    <main id="main-content">
+      <!-- 1. Hero: 전체 너비 배경 이미지 위에 행사 정보와 등록 CTA를 배치합니다. -->
+      <section id="hero" class="hero" aria-labelledby="hero-title">
+        <img
+          class="hero__image"
+          src="assets/ai-conference-cyberpunk.png"
+          alt=""
+          width="1672"
+          height="941"
+          fetchpriority="high"
+        />
+        <div class="container hero__inner">
+          <div class="hero__content">
+            <h1 id="hero-title" class="hero__title" lang="en">2026 AI Innovators Conference</h1>
+            <p class="hero__subtitle" lang="en">Beyond Human: The Next Era of Autonomous Agents</p>
+            <p class="hero__description">
+              전 세계의 AI 연구자, 개발자, 기업가들이 모여 최신 인공지능 기술 동향과
+              미래의 비전을 공유하는 글로벌 컨퍼런스입니다.
+            </p>
+            <dl class="detail-list">
+              <dt class="detail-list__term">일시</dt>
+              <dd class="detail-list__description">
+                <time datetime="2026-11-12">2026년 11월 12일(목)</time> ~
+                <time datetime="2026-11-14">11월 14일(토)</time>
+              </dd>
+              <dt class="detail-list__term">장소</dt>
+              <dd class="detail-list__description">서울 코엑스 (Seoul COEX) 그랜드 볼룸 및 온라인 동시 생중계</dd>
+            </dl>
+            <p class="hero__ticket-note">얼리버드 티켓 사전 등록</p>
+            <a class="button button--cta" href="#registration">사전 등록하기 <span class="button__translation" lang="en">(Register Now)</span></a>
+          </div>
+        </div>
       </section>
 
       <!-- 2. Speakers: 데스크톱 기준 3열 카드. 기획안의 연사 정보는 예시이며 확정 명단이 아닙니다. -->
-      <section id="speakers" class="page-section speakers" aria-labelledby="speakers-title">
+      <section id="speakers" class="container page-section speakers" aria-labelledby="speakers-title">
         <h2 id="speakers-title" class="page-section__title" lang="en">Keynote Speakers</h2>
         <p>AI의 미래를 이야기할 주요 기조연설자를 소개합니다.</p>
         <p class="text-note">연사 명단과 발표 주제는 추후 공개됩니다.</p>
@@ -101,12 +103,12 @@
         </div>
       </section>
 
-      <!-- 3. Registration: 회사명과 직급을 포함한 네 필드를 모두 필수로 구성합니다. -->
-      <section id="registration" class="page-section" aria-labelledby="registration-title">
+      <!-- 3. Registration: 입력 항목과 사진 촬영 동의를 모두 필수로 구성합니다. -->
+      <section id="registration" class="container page-section" aria-labelledby="registration-title">
         <h2 id="registration-title" class="page-section__title" lang="en">Reserve Your Seat</h2>
         <p>2026 AI Innovators Conference의 얼리버드 사전 등록을 위한 정보를 입력해 주세요.</p>
         <p id="registration-note" class="text-note">등록 기능은 준비 중입니다. 현재 입력 내용은 저장되거나 전송되지 않습니다.</p>
-        <p id="required-note">모든 항목은 필수 입력입니다.</p>
+        <p id="required-note">모든 입력 항목과 사진 촬영 동의는 필수입니다.</p>
 
         <!-- TODO: 실제 접수 기능을 연결할 때 처리 주소와 개인정보 안내를 확정합니다. -->
         <form id="registration-form" class="registration-form" method="post" aria-describedby="registration-note required-note">
@@ -126,8 +128,14 @@
             <label for="job-title">직급 <span lang="en">(Job Title)</span></label>
             <input id="job-title" class="registration-form__input" name="jobTitle" type="text" autocomplete="organization-title" required />
           </div>
-          <button id="registration-submit" class="button" type="submit" disabled>
-            등록 완료 <span lang="en">(Submit Registration)</span>
+          <div class="registration-form__field">
+            <label class="registration-form__consent" for="photo-consent">
+              <input id="photo-consent" class="registration-form__checkbox" name="photoConsent" type="checkbox" value="agreed" required />
+              <span>컨퍼런스 현장에서의 사진 촬영에 동의합니다. (필수)</span>
+            </label>
+          </div>
+          <button id="registration-submit" class="button registration-form__submit" type="submit" disabled>
+            등록 완료 <span class="button__translation" lang="en">(Submit Registration)</span>
           </button>
           <p id="registration-status" role="status" aria-live="polite"></p>
           <noscript><p>등록 폼의 입력 확인 기능을 사용하려면 JavaScript를 켜 주세요. 현재 실제 등록은 진행되지 않습니다.</p></noscript>
@@ -142,15 +150,15 @@
         <!-- TODO: 공식 소셜 URL 확정 후 href 및 아이콘을 추가합니다. -->
         <nav class="site-footer__nav" aria-label="소셜 미디어">
           <ul class="link-list">
-            <li><a aria-disabled="true" lang="en">Twitter</a></li>
-            <li><a aria-disabled="true" lang="en">LinkedIn</a></li>
-            <li><a aria-disabled="true" lang="en">GitHub</a></li>
+            <li><a class="site-footer__link" aria-disabled="true" lang="en">Twitter</a></li>
+            <li><a class="site-footer__link" aria-disabled="true" lang="en">LinkedIn</a></li>
+            <li><a class="site-footer__link" aria-disabled="true" lang="en">GitHub</a></li>
           </ul>
         </nav>
         <nav class="site-footer__nav" aria-label="정책 및 약관">
           <ul class="link-list">
-            <li><a aria-disabled="true">개인정보처리방침 <span lang="en">(Privacy Policy)</span></a></li>
-            <li><a aria-disabled="true">이용약관 <span lang="en">(Terms of Service)</span></a></li>
+            <li><a class="site-footer__link" aria-disabled="true">개인정보처리방침 <span lang="en">(Privacy Policy)</span></a></li>
+            <li><a class="site-footer__link" aria-disabled="true">이용약관 <span lang="en">(Terms of Service)</span></a></li>
           </ul>
         </nav>
         <p class="text-note">소셜 미디어 및 정책 링크는 준비 중입니다.</p>
