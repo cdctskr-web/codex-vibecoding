@@ -9,8 +9,7 @@
   --color-text-muted: #b6c0cc;
   --color-accent: #00d4ff;
   --color-accent-hover: #8aebff;
-  --color-cta: #a78bfa;
-  --color-cta-hover: #c4b5fd;
+  --shadow-accent: 0 0 0.75rem rgb(0 212 255 / 35%), 0 0 1.5rem rgb(0 212 255 / 20%);
   --color-border: #39424e;
   --color-border-strong: #647080;
 
@@ -56,7 +55,9 @@ a {
 }
 
 .hero__title {
-  font-size: clamp(2rem, 5vw, 3rem);
+  margin: 0 0 var(--space-lg);
+  font-size: clamp(2.25rem, 5.4vw, 4.5rem);
+  line-height: 1.12;
 }
 
 .page-section__title {
@@ -89,6 +90,7 @@ a {
 }
 
 .site-header {
+  padding-block: var(--space-sm);
   border-bottom: var(--border-default);
 }
 
@@ -105,13 +107,39 @@ a {
 }
 
 .site-header__brand {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   font-weight: 700;
+  text-decoration: none;
 }
 
 .link-list {
   padding: 0;
   margin: 0;
   list-style: none;
+}
+
+.site-header__links {
+  gap: var(--space-xs);
+}
+
+.site-header__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  text-align: center;
+  text-decoration: none;
+  word-break: keep-all;
+}
+
+.site-header__link:hover {
+  color: var(--color-accent-hover);
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
 }
 
 .page-section {
@@ -125,8 +153,39 @@ a {
 }
 
 /* 4. Hero와 공통 텍스트 */
+.hero {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  align-items: center;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding-block: clamp(3rem, 7vw, 6rem);
+  border-bottom: var(--border-default);
+  background: var(--color-background);
+}
+
+.hero::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: linear-gradient(90deg, rgb(13 17 23 / 94%) 0%, rgb(13 17 23 / 82%) 50%, rgb(13 17 23 / 35%) 100%);
+  content: "";
+  pointer-events: none;
+}
+
+.hero__inner {
+  min-width: 0;
+}
+
+.hero__content {
+  max-width: 46rem;
+  overflow-wrap: anywhere;
+}
+
 .hero__subtitle {
   font-size: 1.25rem;
+  color: var(--color-accent-hover);
 }
 
 .hero__description {
@@ -134,6 +193,11 @@ a {
   font-weight: 700;
   line-height: 1.8;
   color: var(--color-text-strong);
+}
+
+.hero__ticket-note {
+  margin-top: var(--space-xl);
+  color: var(--color-accent-hover);
 }
 
 .text-note {
@@ -151,18 +215,33 @@ a {
 /* 5. 공통 버튼과 CTA 변형 */
 .button {
   display: inline-block;
+  max-width: 100%;
+  min-height: 48px;
   padding: 0.7rem 1.2rem;
   border: 1px solid var(--color-accent);
   border-radius: var(--radius-sm);
   color: var(--color-background);
   background: var(--color-accent);
   font-weight: 700;
+  text-align: center;
   text-decoration: none;
+  overflow-wrap: anywhere;
   cursor: pointer;
+  transition: background-color 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
 }
 
-.button:hover {
+.button:focus-visible:not(:disabled) {
+  border-color: var(--color-accent-hover);
   background: var(--color-accent-hover);
+  box-shadow: var(--shadow-accent);
+}
+
+@media (hover: hover) {
+  .button:hover:not(:disabled) {
+    border-color: var(--color-accent-hover);
+    background: var(--color-accent-hover);
+    box-shadow: var(--shadow-accent);
+  }
 }
 
 .button:disabled {
@@ -172,40 +251,38 @@ a {
 
 .button--cta {
   padding: 0.85rem 1.6rem;
-  border-color: var(--color-cta);
-  border-radius: 999px;
-  background: var(--color-cta);
 }
 
-.button--cta:hover {
-  border-color: var(--color-cta-hover);
-  background: var(--color-cta-hover);
+.button__translation {
+  display: inline-block;
+  max-width: 100%;
 }
 
 /* 6. Hero 이미지와 연사 카드 */
-.hero__banner {
-  margin: var(--space-xl) 0 0;
-  overflow: hidden;
-  border: var(--border-default);
-  border-radius: var(--radius-md);
-}
-
 .hero__image {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .speakers__grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: var(--space-md);
 }
 
 .speaker-card {
+  grid-column: span 2;
+  min-width: 0;
   border: var(--border-default);
   border-radius: var(--radius-sm);
   padding: 1.25rem;
+  overflow-wrap: anywhere;
 }
 
 .speaker-card__photo {
@@ -236,6 +313,7 @@ a {
 
 .registration-form__input {
   width: 100%;
+  min-width: 0;
   padding: 0.7rem;
   border: 1px solid var(--color-border-strong);
   border-radius: var(--radius-sm);
@@ -243,13 +321,35 @@ a {
   color: inherit;
 }
 
+.registration-form__consent {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-xs);
+  cursor: pointer;
+}
+
+.registration-form__checkbox {
+  flex-shrink: 0;
+  width: 1.1rem;
+  height: 1.1rem;
+  margin: 0.25rem 0 0;
+  accent-color: var(--color-accent);
+}
+
 /* 8. 푸터와 본문 바로가기 */
 .site-footer__nav {
   margin-block: var(--space-md);
 }
 
+.site-footer__link[aria-disabled="true"] {
+  color: var(--color-text-muted);
+  text-decoration: none;
+  cursor: default;
+}
+
 .skip-link {
   position: absolute;
+  z-index: 1;
   top: var(--space-xs);
   left: var(--space-md);
   padding: var(--space-xs);
@@ -261,16 +361,60 @@ a {
   transform: translateY(0);
 }
 
-/* 9. 반응형 배치: 태블릿 2열, 모바일 1열 */
-@media (max-width: 800px) {
+/* 9. 카드 최소 너비 약 17rem 기준으로 전환하고 마지막 단독 카드는 중앙 정렬합니다. */
+@media (max-width: 55rem) {
   .speakers__grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .speaker-card:last-child:nth-child(odd) {
+    grid-column: 2 / span 2;
+  }
+}
+
+@media (max-width: 37rem) {
+  .speakers__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .speaker-card,
+  .speaker-card:last-child:nth-child(odd) {
+    grid-column: auto;
   }
 }
 
 @media (max-width: 560px) {
-  .speakers__grid {
-    grid-template-columns: 1fr;
+  .site-header__inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-xs);
+  }
+
+  .site-header__brand {
+    align-self: flex-start;
+  }
+
+  .site-header__links {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.25rem;
+  }
+
+  .site-header__link {
+    padding-inline: var(--space-xs);
+  }
+
+  .hero {
+    padding-block: var(--space-2xl);
+  }
+
+  .hero::before {
+    background: rgb(13 17 23 / 85%);
+  }
+
+  .button--cta,
+  .registration-form__submit {
+    width: 100%;
   }
 
   .page-section {
@@ -282,5 +426,9 @@ a {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .button {
+    transition: none;
   }
 }
